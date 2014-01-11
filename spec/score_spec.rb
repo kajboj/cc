@@ -1,5 +1,5 @@
 require 'pry'
-require_relative '../score'
+require_relative '../lib/score'
 
 describe Score do
   def s text

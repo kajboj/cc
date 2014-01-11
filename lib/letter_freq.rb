@@ -31,7 +31,7 @@ class LetterFreq < Score
   end
 
   def average_freq
-    @average_freq ||= eval File.read('frequency.rb')
+    @average_freq ||= eval File.read('lib/frequency.rb')
   end
 
   def letters

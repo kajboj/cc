@@ -1,6 +1,6 @@
 require 'pry'
-require_relative '../r'
-require_relative '../xor'
+require_relative '../lib/r'
+require_relative '../lib/xor'
 
 describe '1' do
   let(:hex) do
@@ -26,7 +26,7 @@ describe '3' do
   specify do
     decode_single_char_xor(encoded)
 
-    encoded = to_bin(File.read('one_xor_encrypted.txt').chomp)
+    encoded = to_bin(File.read('data/one_xor_encrypted.txt').chomp)
     File.open('test.txt', 'w') do |f|
       f.puts decode_single_char_xor(encoded)
     end
