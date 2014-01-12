@@ -51,4 +51,4 @@ class ScoreAndSave
   end
 end
 
-ScoreAndSave.new('one_xor_decrypted.txt', 'scored.txt').run
+ScoreAndSave.new('data/one_xor_decrypted.txt', 'data/scored.txt').run

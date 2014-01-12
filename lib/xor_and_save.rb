@@ -29,6 +29,6 @@ class XorAndSave
   end
 end
 
-xas = XorAndSave.new('from_gist.txt', 'one_xor_decrypted.txt')
+xas = XorAndSave.new('data/from_gist.txt', 'data/one_xor_decrypted.txt')
 
 xas.decrypt_all

@@ -1,5 +1,5 @@
 require 'pry'
-require_relative '../lib/r'
+require_relative '../lib/utils'
 require_relative '../lib/xor'
 
 describe '1' do
@@ -52,6 +52,6 @@ describe 'Hamming distance' do
   let(:s2) {'wokka wokka!!!'}
 
   specify do
-    dist(s1, s2).should == 37
+    Hamming.distance(s1, s2).should == 37
   end
 end

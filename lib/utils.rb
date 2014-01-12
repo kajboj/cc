@@ -1,5 +1,6 @@
 require "base64"
 require_relative 'score'
+require_relative 'hamming'
 
 def pack array
   array.pack 'C*'
@@ -30,11 +31,24 @@ def xor a, b
   pack xored
 end
 
-def dist a, b
-  a = a.each_byte
-  b = b.each_byte
-  a.zip(b).inject(0) do |sum, (x, y)|
-    sum += (x^y).to_s(2).count('1')
-    sum
+def decode_single_char_xor bin
+  all = 255.times.map do |i|
+    single_char = pack [i]*bin.size
+    xor single_char, bin
   end
+
+  candidates = all.select do |s|
+    s =~ /\A[a-zA-Z ,.']*\z/
+  end
+
+  scores = candidates.map { |p| score p }
+  max = scores.max
+
+  scores.zip(candidates).find do |score, plaintext|
+    return plaintext if score == max
+  end
+end
+
+def score plaintext
+  Score.score plaintext
 end

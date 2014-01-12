@@ -4,9 +4,7 @@ class Xor
   end
 
   def encrypt bin
-    xor \
-      repeating_key(bin.length),
-      bin
+    xor(repeating_key(bin.length), bin)
   end
 
   private
